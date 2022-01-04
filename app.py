@@ -31,7 +31,7 @@ def loading(PATH = 'model/xlmr_span_.pt'):
     print(f"===== Done !!! =====Time: {time.time() -start:.4} s =========")
     return ner
 
-ner = loading('model/xlmr_span_2412_word.pt')
+# ner = loading('model/xlmr_span_2412_word.pt')
 
 HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; border-radius: 0.25rem; padding: 1rem">{}</div>"""
 
@@ -60,7 +60,8 @@ def extract():
     if request.method == 'POST':
         if request.form.get('submit_button', False) == "Submit":
             raw_text = request.form['rawtext']
-            docx = ner.predict(raw_text)
+            # docx = ner.predict(raw_text)
+            docx = [('Tinh', 'PERSON'), ('a', 'O')]
             html = utils.visualize_spacy(docx)
             html = html.replace('[/n]','</br>')
             result = HTML_WRAPPER.format(html)
