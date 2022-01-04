@@ -6,7 +6,7 @@ import requests
 
 HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; border-radius: 0.25rem; padding: 1rem">{}</div>"""
 
-# my_url  = 'http://192.168.1.9:3002/api/'
+my_url  = 'http://192.168.1.9:3002/api/'
 from flaskext.markdown import Markdown
 
 app = Flask(__name__)
@@ -33,7 +33,8 @@ def extract():
             raw_text = request.form['rawtext']
             # docx = ner.predict(raw_text)
             # r = requests.post(url= my_url, data={'text':raw_text})
-            docx = json.loads(r.text)
+            # docx = json.loads(r.text)
+            docx = [('Tinh', 'O'), ('a', 'O')]
             html = utils.visualize_spacy(docx)
             html = html.replace('[/n]','</br>')
             result = HTML_WRAPPER.format(html)
