@@ -6,7 +6,7 @@ import requests
 
 HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; border-radius: 0.25rem; padding: 1rem">{}</div>"""
 
-my_url  = 'http://192.168.1.9:3002/api/'
+# my_url  = 'http://192.168.1.9:3002/api/'
 from flaskext.markdown import Markdown
 
 app = Flask(__name__)
