@@ -32,7 +32,7 @@ def extract():
         if request.form.get('submit_button', False) == "NE Recognition":
             raw_text = request.form['rawtext']
             # docx = ner.predict(raw_text)
-            r = requests.post(url= my_url, data={'text':raw_text})
+            # r = requests.post(url= my_url, data={'text':raw_text})
             docx = json.loads(r.text)
             html = utils.visualize_spacy(docx)
             html = html.replace('[/n]','</br>')
